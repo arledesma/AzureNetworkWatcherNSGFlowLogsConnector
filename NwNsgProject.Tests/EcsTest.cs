@@ -124,7 +124,7 @@ public class EcsTest
         string workingDirectory = Environment.CurrentDirectory;
         string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName.Replace("bin", "");
      
-        string flowlog = File.ReadAllText(projectDirectory + "AzureNSGFlowLogsv1.json", Encoding.UTF8);
+        string flowlog = File.ReadAllText(projectDirectory + "AzureNSGFlowLogsv2.json", Encoding.UTF8);
         int count = 0;
         foreach(var bundleOfMessages in Util.bundleEcsMessageListsJson(flowlog, logger))
         {
