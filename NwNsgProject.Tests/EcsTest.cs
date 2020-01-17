@@ -168,6 +168,4 @@ public class EcsTest
 
         return record;
     }
-
-
 }

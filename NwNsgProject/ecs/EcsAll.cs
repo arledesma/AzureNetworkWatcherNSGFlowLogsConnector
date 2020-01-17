@@ -29,4 +29,3 @@ public class EcsAll
         this.network = new Network(denormalizedRecord);
     }
 }
-
