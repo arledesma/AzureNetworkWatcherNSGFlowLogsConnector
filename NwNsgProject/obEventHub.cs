@@ -61,9 +61,8 @@ namespace nsgFunc
             {
                 foreach(DenormalizedRecord denormalizedRecord in messageList)
                 {
-                    OutgoingEcsRecord ecsRecord = new OutgoingEcsRecord();
-                    ecsRecord.message = new EcsAll(denormalizedRecord);
-                    var outgoingEcsJson = JsonConvert.SerializeObject(ecsRecord, new JsonSerializerSettings
+                    EcsAll ecsAll = new EcsAll(denormalizedRecord);
+                    var outgoingEcsJson = JsonConvert.SerializeObject(ecsAll, new JsonSerializerSettings
                     {
                         NullValueHandling = NullValueHandling.Ignore
                     });

@@ -45,11 +45,6 @@ class OutgoingRecords
     public List<DenormalizedRecord> records { get; set; }
 }
 
-class OutgoingEcsRecord
-{
-    public EcsAll message { get; set; }
-}
-
 class NSGFlowLogsInnerFlows
 {
     public string mac { get; set; }
