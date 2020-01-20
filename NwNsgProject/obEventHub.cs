@@ -31,7 +31,7 @@ namespace nsgFunc
             var eventHubClient = LazyEventHubConnection.Value;
             int bytesSent = 0;
 
-            foreach (var bundleOfMessages in bundleMessageListsJson(newClientContent, log))
+            foreach (var bundleOfMessages in bundleEcsMessageListsJson(newClientContent, log))
             {
                 await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(bundleOfMessages)));
                 bytesSent += bundleOfMessages.Length;
@@ -52,6 +52,23 @@ namespace nsgFunc
                 });
 
                 yield return outgoingJson;
+            }
+        }
+
+        public static System.Collections.Generic.IEnumerable<string> bundleEcsMessageListsJson(string newClientContent, ILogger log)
+        {
+            foreach (List<DenormalizedRecord> messageList in denormalizedRecords(newClientContent, null, log))
+            {
+                foreach(DenormalizedRecord denormalizedRecord in messageList)
+                {
+                    EcsAll ecsAll = new EcsAll(denormalizedRecord);
+                    var outgoingEcsJson = JsonConvert.SerializeObject(ecsAll, new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore
+                    });
+
+                    yield return outgoingEcsJson;
+                }
             }
         }
     }
