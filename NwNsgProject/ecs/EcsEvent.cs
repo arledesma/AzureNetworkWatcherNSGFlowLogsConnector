@@ -20,6 +20,6 @@ public class EcsEvent
         this.dataset = "nsg.access";
 
         DateTime ingestedUtcNow = DateTime.UtcNow;
-        this.ingested = ingestedUtcNow.ToString("yyyy-MM-ddThh:mm:ss.fffffffZ");
+        this.ingested = ingestedUtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
     }
 }
