@@ -15,7 +15,8 @@ public class EcsEvent
 
         this.outcome = (denormalizedRecord.deviceAction == "A" ? "allowed" : "denied");
 
-        this.start = denormalizedRecord.startTime;
+        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(denormalizedRecord.startTime));
+        this.start = dateTimeOffset.UtcDateTime.ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ");
 
         this.dataset = "nsg.access";
 

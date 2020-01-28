@@ -53,6 +53,7 @@ public class EcsTest
         Assert.Equal(denormalizedRecordV2.operationName, ecsAll.ecsevent.action);
         Assert.Equal("allowed", ecsAll.ecsevent.outcome);
         Assert.Equal("nsg.access", ecsAll.ecsevent.dataset);
+        Assert.Equal("2020-01-10T16:32:42.0000000Z", ecsAll.ecsevent.start);
         Assert.Equal(denormalizedRecordV2.resourceId, ecsAll.resource.id);
         Assert.Equal("F087A016-314D-482C-93F1-88665DAFBA23", ecsAll.resource.subscription);
         Assert.Equal("AKS-AGENTPOOL-14244569-NSG", ecsAll.resource.nsg);
