@@ -60,17 +60,17 @@ public class EcsTest
         Assert.Equal("10.244.0.40", ecsAll.source.ip);
         Assert.Equal("10.244.1.68", ecsAll.destination.address);
         Assert.Equal("10.244.1.68", ecsAll.destination.ip);
-        Assert.Equal("36098", ecsAll.source.port);
-        Assert.Equal("25227", ecsAll.destination.port);       
-        Assert.Equal("3", ecsAll.source.packets);
-        Assert.Equal("2", ecsAll.destination.packets);       
-        Assert.Equal("206", ecsAll.source.bytes);
-        Assert.Equal("140", ecsAll.destination.bytes);
+        Assert.Equal(36098, ecsAll.source.port);
+        Assert.Equal(25227, ecsAll.destination.port);       
+        Assert.Equal(3, ecsAll.source.packets);
+        Assert.Equal(2, ecsAll.destination.packets);       
+        Assert.Equal(206, ecsAll.source.bytes);
+        Assert.Equal(140, ecsAll.destination.bytes);
         Assert.Equal("tcp", ecsAll.network.transport);
         Assert.Equal("inbound", ecsAll.network.direction);       
         Assert.Equal("transport", ecsAll.network.protocol);
-        Assert.Equal("5", ecsAll.network.packets);        
-        Assert.Equal("346", ecsAll.network.bytes);       
+        Assert.Equal(5, ecsAll.network.packets);        
+        Assert.Equal(346, ecsAll.network.bytes);       
         Assert.Equal("E", ecsAll.network.flowstate);
     }
 
@@ -103,17 +103,17 @@ public class EcsTest
         Assert.Equal("10.244.0.40", ecsAll.source.ip);
         Assert.Equal("10.244.1.68", ecsAll.destination.address);
         Assert.Equal("10.244.1.68", ecsAll.destination.ip);
-        Assert.Equal("36098", ecsAll.source.port);
-        Assert.Equal("25227", ecsAll.destination.port);       
-        Assert.Equal("10", ecsAll.source.packets);
-        Assert.Equal("9", ecsAll.destination.packets);       
-        Assert.Equal("1300", ecsAll.source.bytes);
-        Assert.Equal("600", ecsAll.destination.bytes);
+        Assert.Equal(36098, ecsAll.source.port);
+        Assert.Equal(25227, ecsAll.destination.port);       
+        Assert.Equal(10, ecsAll.source.packets);
+        Assert.Equal(9, ecsAll.destination.packets);       
+        Assert.Equal(1300, ecsAll.source.bytes);
+        Assert.Equal(600, ecsAll.destination.bytes);
         Assert.Equal("udp", ecsAll.network.transport);
         Assert.Equal("outbound", ecsAll.network.direction);       
         Assert.Equal("transport", ecsAll.network.protocol);
-        Assert.Equal("19", ecsAll.network.packets);        
-        Assert.Equal("1900", ecsAll.network.bytes);       
+        Assert.Equal(19, ecsAll.network.packets);        
+        Assert.Equal(1900, ecsAll.network.bytes);       
         Assert.Equal("C", ecsAll.network.flowstate);
     }
 

@@ -1,17 +1,18 @@
+using System;
 public class Destination
 {
     public string address { get; set; }
     public string ip { get; set; }
-    public string port { get; set; }
-    public string packets { get; set; }
-    public string bytes { get; set; }
+    public long port { get; set; }
+    public long packets { get; set; }
+    public long bytes { get; set; }
     
     public Destination(DenormalizedRecord denormalizedRecord)
     {
         this.address = denormalizedRecord.destinationAddress;
         this.ip = denormalizedRecord.destinationAddress;
-        this.port = denormalizedRecord.destinationPort;
-        this.packets = denormalizedRecord.packetsDtoS;
-        this.bytes = denormalizedRecord.bytesDtoS;
+        this.port = Convert.ToInt64(denormalizedRecord.destinationPort);
+        this.packets = Convert.ToInt64(denormalizedRecord.packetsDtoS);
+        this.bytes = Convert.ToInt64(denormalizedRecord.bytesDtoS);
     }
 }
