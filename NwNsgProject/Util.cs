@@ -24,7 +24,7 @@ namespace nsgFunc
             return result;
         }
 
-        public static async Task<int> SendMessagesDownstreamAsync(string nsgMessagesString, ExecutionContext executionContext, Binder cefLogBinder, ILogger log)
+        public static async Task<TaskRecord> SendMessagesDownstreamAsync(string nsgMessagesString, ExecutionContext executionContext, Binder cefLogBinder, ILogger log)
         {
             //
             // nsgMessagesString looks like this:
@@ -45,7 +45,7 @@ namespace nsgFunc
             if (outputBinding.Length == 0)
             {
                 log.LogError("Value for outputBinding is required. Permitted values are: 'arcsight', 'splunk', 'eventhub'.");
-                return 0;
+                return null;
             }
 
             // skip past the leading comma
@@ -88,6 +88,7 @@ namespace nsgFunc
                 }
             }
 
+            TaskRecord taskRecord = null;
             int bytesSent = 0;
             switch (outputBinding)
             {
@@ -96,15 +97,17 @@ namespace nsgFunc
                 //    break;
                 case "arcsight":
                     bytesSent = await Util.obArcsightNew(newClientContent, executionContext, cefLogBinder, log);
+                    taskRecord = new TaskRecord(bytesSent, 0);
                     break;
                 case "splunk":
                     bytesSent = await Util.obSplunk(newClientContent, log);
+                    taskRecord = new TaskRecord(bytesSent, 0);
                     break;
                 case "eventhub":
-                    bytesSent = await Util.obEventHub(newClientContent, log);
+                    taskRecord = await Util.obEventHub(newClientContent, log);
                     break;
             }
-            return bytesSent;
+            return taskRecord;
         }
 
         public class SingleHttpClientInstance
