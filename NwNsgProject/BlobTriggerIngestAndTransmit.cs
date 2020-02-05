@@ -103,8 +103,8 @@ namespace nsgFunc
 
             try
             {
-                int bytesSent = await Util.SendMessagesDownstreamAsync(nsgMessagesString, executionContext, cefLogBinder, log);
-                log.LogInformation($"Sending {nsgMessagesString.Length} bytes (denormalized to {bytesSent} bytes) downstream via output binding {outputBinding}.");
+                TaskRecord taskRecord = await Util.SendMessagesDownstreamAsync(nsgMessagesString, executionContext, cefLogBinder, log);
+                log.LogInformation($"Sending {nsgMessagesString.Length} bytes (denormalized to {taskRecord.bytesSent} bytes) and Event Count: {taskRecord.eventCount} downstream via output binding {outputBinding}.");
             }
             catch (Exception ex)
             {
