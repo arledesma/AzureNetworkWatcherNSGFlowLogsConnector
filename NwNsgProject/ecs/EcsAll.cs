@@ -20,7 +20,7 @@ public class EcsAll
         this.agent = new Agent("AzureNetworkWatcherNSGFlowLogsConnector");
         this.rule = new Rule(denormalizedRecord.nsgRuleName);
         this.ecs = new Ecs("1.0.0");
-        this.type = "flowlogs-azurensg";
+        this.type = "ecs-flowlogs-azurensg";
         this.client = new Client(denormalizedRecord.mac);
         this.ecsevent = new EcsEvent(denormalizedRecord);
         this.resource = new Resource(denormalizedRecord.resourceId);
