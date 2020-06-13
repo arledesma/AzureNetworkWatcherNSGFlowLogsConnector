@@ -104,8 +104,9 @@
             "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-11-01",
             "location": "[resourceGroup().location]",
-            "properties": {
-                "storageAccountType": "Standard_LRS"
+			"kind": "Storage",
+            "sku": {
+                "name": "Standard_LRS"
             }
         },
         {
