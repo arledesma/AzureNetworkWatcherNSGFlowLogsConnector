@@ -105,7 +105,7 @@
             "apiVersion": "2018-11-01",
             "location": "[resourceGroup().location]",
             "properties": {
-                "accountType": "Standard_LRS"
+                "storageAccountType": "Standard_LRS"
             }
         },
         {
