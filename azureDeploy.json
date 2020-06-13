@@ -164,7 +164,7 @@
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~2"
+                            "value": "~1"
                         },
                         {
                             "name": "WEBSITE_NODE_DEFAULT_VERSION",
@@ -215,7 +215,7 @@
             },
             "resources": [
                 {
-                    "apiVersion": "2019-08-01",
+                    "apiVersion": "2015-08-01",
                     "name": "web",
                     "type": "sourcecontrols",
                     "dependsOn": [
